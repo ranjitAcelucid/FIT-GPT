@@ -1,3 +1,6 @@
 {
-    "cmake.sourceDirectory": "/Users/macos/acelucid/sales/linux"
+    "avdmanager.sdkPath": "c:\\Users\\dell\\AppData\\Local\\Android\\Sdk",
+    "cmake.ignoreCMakeListsMissing": true,
+    "editor.defaultFormatter": "Dart-Code.flutter",
+    "editor.formatOnSave": true
 }
