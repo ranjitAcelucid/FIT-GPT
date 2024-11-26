@@ -193,11 +193,11 @@ class _CreateNewDietState extends State<CreateNewDiet> {
   ];
 
   // Store diet plan data
-  Future<void> storeDietPlan(DietPlan dietPlan) async {
+  Future<void> storeDietPlan(Map<String, dynamic> dietPlan) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     // Convert diet plan to JSON string
-    String dietPlanJson = jsonEncode(dietPlan.toJson());
+    String dietPlanJson = jsonEncode(dietPlan);
 
     // Save the JSON string in SharedPreferences
     await prefs.setString('diet_plan', dietPlanJson);
@@ -228,7 +228,7 @@ class _CreateNewDietState extends State<CreateNewDiet> {
                   ),
                   const SizedBox(height: 10),
                   CommonButton(
-                      onPressed: () {
+                      onPressed: () async {
                         if (formKey.currentState!.validate()) {
                           final Map<String, dynamic> dietData = {
                             "diet_name": dietName.text.trim(),
@@ -244,8 +244,9 @@ class _CreateNewDietState extends State<CreateNewDiet> {
                                 selectedDinner.isNotEmpty ? selectedDinner : [],
                           };
                           // Add dynamically
-                          final dietPlanCubit = DietPlanCubit();
-                          dietPlanCubit.addDietPlan(dietData);
+                          // final dietPlanCubit = DietPlanCubit();
+                          // dietPlanCubit.addDietPlan(dietData);
+                          await storeDietPlan(dietData);
                           ToastUtil.showToast(
                               message: "Diet plan created successfully");
                           Navigator.of(context).pop();
