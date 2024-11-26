@@ -86,7 +86,7 @@ class _DieticianHomeState extends State<DieticianHome> {
                                     letterSpacing: 0.5)),
                           ),
                           Text(
-                            AppStrings.name,
+                            'Sushivam Singh',
                             style: getDynamicTextStyle(
                                 context,
                                 headLineFontWeight600.copyWith(
@@ -213,25 +213,25 @@ class _DieticianHomeState extends State<DieticianHome> {
                   }
                 },
               ),
-              CommonButton(
-                onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(
-                    builder: (context) => const CreateNewDiet(),
-                  ))
-                      .then(
-                    (value) {
-                      retrieveDietPlan();
-                      getDietPlan();
-                      setState(() {});
-                    },
-                  );
-                },
-                buttonText: 'Create New Diet',
-                buttonColor: AppColors.primary,
-                buttonTextColor: AppColors.white,
-                isLoading: false,
-              ),
+              // CommonButton(
+              //   onPressed: () {
+              //     Navigator.of(context)
+              //         .push(MaterialPageRoute(
+              //       builder: (context) => const CreateNewDiet(),
+              //     ))
+              //         .then(
+              //       (value) {
+              //         retrieveDietPlan();
+              //         getDietPlan();
+              //         setState(() {});
+              //       },
+              //     );
+              //   },
+              //   buttonText: 'Create New Diet',
+              //   buttonColor: AppColors.primary,
+              //   buttonTextColor: AppColors.white,
+              //   isLoading: false,
+              // ),
             ],
           ),
         ),
@@ -242,7 +242,7 @@ class _DieticianHomeState extends State<DieticianHome> {
   // Widget for "No Diet" UI
   Widget _buildNoDietAvailable(BuildContext context) {
     return Container(
-      // margin: EdgeInsets.only(top: screenHeight(context, 0.15)),
+      margin: EdgeInsets.only(top: screenHeight(context, 0.15)),
       child: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
