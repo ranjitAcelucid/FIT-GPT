@@ -15,7 +15,7 @@ class GeneralFunction {
       height:
           screenHeight(context, Responsive.isMobile(context) ? 0.016 : 0.028),
       colorFilter: ColorFilter.mode(
-          toggleColor ? AppColors.dark6 : AppColors.primary, BlendMode.srcIn),
+          toggleColor ? AppColors.dark9 : AppColors.primary, BlendMode.srcIn),
     );
   }
 }

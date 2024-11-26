@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sales/utils/constants/app_style.dart';
 import 'package:sales/utils/constants/colors.dart';
 import 'package:sales/utils/constants/images.dart';
@@ -71,34 +72,40 @@ class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.primary,
-        toolbarHeight: 0,
-        leading: const SizedBox(),
-      ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        color: AppColors.primary,
-        child: Center(
-          child: SizeTransition(
-            sizeFactor: _animation,
-            axis: Axis.horizontal,
-            axisAlignment: -1,
-            child: Container(
-              margin: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.5 -
-                      AppBar().preferredSize.height),
-              child: Image.asset(
-                Images.nutmegLogo,
-                fit: BoxFit.cover,
-                // width: MediaQuery.of(context).size.width * 0.6,
-                height: screenHeight(context, 0.1),
-              ),
+      body: Stack(
+        children: [
+          // Image background
+          SizedBox.expand(
+            child: Image.asset(
+              Images.splashBg,
+              fit: BoxFit.cover,
             ),
           ),
-        ),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'FIT GPT',
+                  style: GoogleFonts.bungeeShade(
+                      fontSize: getDynamicFontSize(context, 50),
+                      color: AppColors.primary),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Fuel Your Goals, One Meal at a Time.',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.bungeeInline(
+                        fontSize: getDynamicFontSize(context, 20),
+                        color: AppColors.primary),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

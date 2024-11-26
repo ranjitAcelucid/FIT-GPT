@@ -80,6 +80,7 @@ class _CommonInputBoxState extends State<CommonInputBox> {
       readOnly: widget.readOnly,
       obscuringCharacter: '*',
       cursorColor: AppColors.primary,
+      textAlignVertical: TextAlignVertical.top,
       style: getDynamicTextStyle(
           context,
           headLineFontWeight500.copyWith(
@@ -88,7 +89,7 @@ class _CommonInputBoxState extends State<CommonInputBox> {
               color: AppColors.dark1)),
       decoration: InputDecoration(
         isDense: false,
-        alignLabelWithHint: false,
+        alignLabelWithHint: true,
         helperText: ' ',
         hintText: widget.hintText,
         labelText: widget.hintText,
@@ -157,17 +158,17 @@ class _CommonInputBoxState extends State<CommonInputBox> {
             horizontal: screenHeight(
                 context, Responsive.isMobile(context) ? 0.015 : 0.013),
             vertical: screenHeight(
-                context, Responsive.isMobile(context) ? 0.020 : 0.015)),
+                context, Responsive.isMobile(context) ? 0.02 : 0.015)),
         filled: widget.filled,
         fillColor: widget.fillColour ?? AppColors.white,
         suffixIcon: Padding(
           padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.010),
           child: widget.suffixIcon,
         ),
-        prefixIcon: Padding(
-          padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.010),
-          child: widget.prefixIcon,
-        ),
+        // prefixIcon: Padding(
+        //   padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.010),
+        //   child: widget.prefixIcon,
+        // ),
       ),
     );
   }

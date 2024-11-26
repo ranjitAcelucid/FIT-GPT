@@ -43,4 +43,29 @@ class AppStrings {
 At least one uppercase letter, 
 One lowercase letter,
 One number and one special character ''';
+
+  static const String hello = "Hello,";
+  static const String weight = "Weight:";
+  static const String bmi = "BMI:";
+  static const String kcal = "Kcal:";
+  static const String steps = "Steps:";
+  static const String name = "Ranjit Kumar";
+  static const String dailyProgress = "Your Daily Progress";
+  static const String generateWithAi = "AI Generated Diet";
+  static const String knowYouBetter = "Let's know you better";
+  static const String fullName = "Full Name";
+  static const String gender = "Gender";
+  static const String age = "Age";
+  static const String height = "Height (cm)";
+  static const String weight1 = "Weight (kg)";
+  static const String dietaryPrefs = "Dietary Preference";
+  static const String healthCondition = "Health Condition";
+  static const String goal = "Health Goal";
+  static const String aboutYourself = "About Yourself";
+  static const String experience = "Year of Experience";
+  static const String dietPlanReq = "Diet Plan Requests";
+  static const String signUpInfo =
+      "We use this information to calculate and provide you with daily personal recommendations";
+  static const String noDietInfo =
+      "No diet list available. Kindly create a custom plan tailored to your needs.";
 }

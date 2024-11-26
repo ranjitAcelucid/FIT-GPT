@@ -1,8 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sales/cubit/auth/auth_cubit.dart';
+import 'package:sales/cubit/product/diet/diet_cubit.dart';
 import 'package:sales/di.dart';
 import 'package:sales/utils/services/navigation_service.dart';
 import 'package:sales/utils/services/route_constant.dart';
@@ -12,7 +14,14 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   HttpOverrides.global = MyHttpOverrides();
 
-  runApp(const MyApp());
+  // Lock the orientation
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp, // Lock to portrait
+    // DeviceOrientation.landscapeLeft, // Lock to landscape (uncomment if needed)
+    // DeviceOrientation.landscapeRight, // Lock to another landscape mode
+  ]).then((_) {
+    runApp(const MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -23,8 +32,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<AuthCubit>(
-            create: (context) => AuthCubit(authRepository: getIt())),
+        BlocProvider<DietPlanCubit>(create: (context) => DietPlanCubit()),
       ],
       child: MaterialApp(
         // home: const SplashScreen(),
